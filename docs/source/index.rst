@@ -1,23 +1,26 @@
 Welcome to Aurelia X4 Drone Project's documentation!
 =====================================================
 
-**Aurelia X4 Drone Project** is a ROS2-based aerial robotics project implementing a full drone control stack in simulation and hardware. Developed by a team of five students, this project includes RViz visualization, Gazebo simulation, and ArduPilot integration.
+**Aurelia X4 Drone Project** implements a ROS 2-based control system for the Aurelia X4 drone, enabling simulation, visualization, and real-world flight capabilities.
 
 .. note::
 
-   This project is developed as part of a final robotics course project.
+   This project is developed as a final robotics course project.
 
-Check out the :doc:`setup` section to build and install the project, or see :doc:`usage` for how to fly and test the drone.
+
+
 
 Contents
 --------
 
 .. toctree::
    :maxdepth: 2
+   :caption: Table of Contents
 
+   overview
    setup
    usage
-   simulation
-   components
-   roadmap
+   packages
+   interfaces
+   vision
    troubleshooting
