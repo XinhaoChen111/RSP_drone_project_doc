@@ -1,34 +1,40 @@
 Usage
 =====
 
-.. _installation:
+This page explains how to operate the drone in simulation and real hardware using ROS2 and MAVProxy.
 
-Installation
-------------
+ROS2 Services
+-------------
 
-To use Lumache, first install it using pip:
+Switch to Guided mode:
 
-.. code-block:: console
+.. code-block:: bash
 
-   (.venv) $ pip install lumache
+   ros2 service call /ap/mode_switch ardupilot_msgs/srv/ModeSwitch "{mode: 4}"
 
-Creating recipes
+Arm the drone:
+
+.. code-block:: bash
+
+   ros2 service call /ap/arm_motors ardupilot_msgs/srv/ArmMotors "{arm: true}"
+
+Takeoff:
+
+.. code-block:: bash
+
+   ros2 service call /ap/experimental/takeoff ardupilot_msgs/srv/Takeoff "{alt: 4}"
+
+Available Topics
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Echo IMU data:
 
-.. autofunction:: lumache.get_random_ingredients
+.. code-block:: bash
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+   ros2 topic echo /ap/imu/experimental/data
 
-.. autoexception:: lumache.InvalidKindError
+Echo local pose:
 
-For example:
+.. code-block:: bash
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
-
+   ros2 topic echo /ap/pose/filtered

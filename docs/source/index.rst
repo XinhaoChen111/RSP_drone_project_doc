@@ -1,22 +1,23 @@
-Welcome to Lumache's documentation!
-===================================
+Welcome to Aurelia X4 Drone Project's documentation!
+=====================================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+**Aurelia X4 Drone Project** is a ROS2-based aerial robotics project implementing a full drone control stack in simulation and hardware. Developed by a team of five students, this project includes RViz visualization, Gazebo simulation, and ArduPilot integration.
 
 .. note::
 
-   This project is under active development.
+   This project is developed as part of a final robotics course project.
+
+Check out the :doc:`setup` section to build and install the project, or see :doc:`usage` for how to fly and test the drone.
 
 Contents
 --------
 
 .. toctree::
+   :maxdepth: 2
 
+   setup
    usage
-   api
+   simulation
+   components
+   roadmap
+   troubleshooting
