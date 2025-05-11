@@ -27,6 +27,7 @@ Features:
   - Publishes velocity values to `/drone/keyboardvelocity`
 - **ArduPilot MAVProxy Control Buttons:**
   - **Start MAVProxy**: Runs `mavproxy.py --master=/dev/ttyUSB0 --baudrate 57600`
-  - **Mode GUIDED**:
+  - **Mode GUIDED**: Switches drone to GUIDED mode
+  - **Demo**: Executes a demo flight plan
 ::contentReference[oaicite:1]{index=1}
  
