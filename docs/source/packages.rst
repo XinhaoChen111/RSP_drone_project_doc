@@ -51,3 +51,29 @@ Handles communication with the physical drone:
 - Safety monitoring
 - Parameter management
 - User interface
+
+
+x4_service_scripts
+------------
+
+Demo scripts for completing high-level actions:
+- Takeoff
+- Landing
+- Waypointing
+- Loiter
+
+x4_vision
+------------
+
+Vision implementation for X4 drone using Sony RX0 II:
+- Stream video from a USB UVC-compatible camera 
+- Apply camera intrinsics from calibration
+- Detect ArUco tags
+- Estimate 3D pose of markers
+- Publish detections for precision landing
+
+
+x4_moveit
+------------
+
+High-level Moveit package for flight:
