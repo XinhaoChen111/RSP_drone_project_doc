@@ -31,14 +31,11 @@ Controlling the Drone
 In a new terminal:
 
 .. code-block:: bash
+
    Arm Throttle: ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: true}"
-   
    Set Mode: ros2 service call /mavros/set_mode mavros_msgs/srv/SetMode "{base_mode: 0, custom_mode: 'GUIDED'}"
-   
    Takeoff: ros2 service call /mavros/cmd/takeoff mavros_msgs/srv/CommandTOL "{min_pitch: 0.0, yaw: 0.0, latitude: 0.0, longitude: 0.0, altitude: 3.0}"
-   
    Land: ```ros2 service call /mavros/cmd/land mavros_msgs/srv/CommandTOL "{min_pitch: 0.0, yaw: 0.0, latitude: 0.0, longitude: 0.0, altitude: 0.0}"``
-   
    Local Waypoint (Relative to Home): ros2 topic pub /mavros/setpoint_position/local geometry_msgs/msg/PoseStamped "{header: {frame_id: 'map'}, pose: {position: {x: 5.0, y: 5.0, z: 3.0}, orientation: {w: 1.0}}}"
 
 These are just some examples but full documentation can be found here.
