@@ -22,5 +22,4 @@ Contents
    usage
    packages
    interfaces
-   simulation
    troubleshooting
