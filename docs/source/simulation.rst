@@ -10,7 +10,7 @@ Use `colcon` to build the core packages:
 
 .. code-block:: bash
 
-   colcon build --packages-select x4_description x4_bringup x4_interfaces x4_gazebo
+   colcon build --packages-select x4_description x4_bringup x4_interfaces x4_gazebo x4_bringup
 
 Launch Simulation
 -----------------
@@ -24,8 +24,8 @@ Start Gazebo with SITL and ROS2 bridges:
 This starts:
 - Gazebo Fortress
 - ArduPilot SITL
-- Micro XRCE DDS Bridge
-- MAVProxy terminal (optional)
+- MAVProxy terminal
+- MAVROS
 
 Send MAVProxy commands in the console:
 
@@ -34,3 +34,13 @@ Send MAVProxy commands in the console:
    mode guided
    arm throttle
    takeoff 5
+
+Send MAVROS ROS2 commands in a new terminal
+
+.. code-block:: bash
+
+   Arm throttle: ros2 service call /mavros/cmd/arming mavros_msgs/srv/CommandBool "{value: true}"
+   Set Mode: ros2 service call /mavros/set_mode mavros_msgs/srv/SetMode "{base_mode: 0, custom_mode: 'GUIDED'}"
+   Takeoff: ros2 service call /mavros/cmd/takeoff mavros_msgs/srv/CommandTOL "{min_pitch: 0.0, yaw: 0.0, latitude: 0.0, longitude: 0.0, altitude: 3.0}"
+   Land: ros2 service call /mavros/cmd/land mavros_msgs/srv/CommandTOL "{min_pitch: 0.0, yaw: 0.0, latitude: 0.0, longitude: 0.0, altitude: 0.0}"
+
