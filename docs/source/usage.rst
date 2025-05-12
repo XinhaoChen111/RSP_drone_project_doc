@@ -21,7 +21,13 @@ To launch the Gazebo simulation with ArduPilot support:
 
    ros2 launch x4_bringup x4_startup.launch.py
 
-This command starts Gazebo and ArduPilot with SITL and a MAVROS bridge for ROS 2 commands. It also launches a MAVProxy terminal for communication. This launch file has two parameters: use_sim which defaults to true and use_real which defaults to false. For running the code on real hardware, make sure to flip these launch parameters. Gazebo will not launch when usng real hardware.
+This command starts Gazebo and ArduPilot with SITL and a MAVROS bridge for ROS 2 commands. It also launches a MAVProxy terminal for communication. This launch file has two parameters: use_sim which defaults to true and use_real which defaults to false. For running the code on real hardware, make sure to flip these launch parameters. 
+
+.. code-block:: bash
+
+   ros2 launch x4_bringup x4_startup.launch.py use_sim:=false use_real:=true
+
+Gazebo will not launch when usng real hardware.
 
 Controlling the Drone
 ---------------------
@@ -54,7 +60,9 @@ In the MAVProxy terminal:
    mode land
 
 **ROS 2 DDS Commands:**
-(Not active by default)
+
+NOTE: Not active by default. You can find methods to use this in the ardupilot.launch.py file and the x4_service_scripts package.
+
 In a new terminal:
 
 .. code-block:: bash
