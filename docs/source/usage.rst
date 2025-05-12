@@ -1,7 +1,7 @@
 Usage Guide
 ===========
 
-This section provides instructions on how to use the simulation and control the drone.
+This section provides instructions on how to use the simulation and control the real drone.
 
 Building the Repository
 -----------------------
