@@ -10,7 +10,7 @@ To compile the repository:
 
 .. code-block:: bash
 
-   colcon build --packages-select x4_description x4_bringup x4_interface x4_gazebo
+   colcon build --packages-select x4_description x4_bringup x4_interface x4_gazebo x4_vision x4_service_scripts
 
 Launching the Simulation
 ------------------------
@@ -21,7 +21,7 @@ To launch the Gazebo simulation with ArduPilot support:
 
    ros2 launch x4_bringup x4_startup.launch.py
 
-This command starts Gazebo and ArduPilot with SITL and a Micro ROS bridge to ROS 2 commands. It also launches a MAVProxy terminal for communication.
+This command starts Gazebo and ArduPilot with SITL and a MAVROS bridge for ROS 2 commands. It also launches a MAVProxy terminal for communication. This launch file has two parameters: use_sim which defaults to true and use_real which defaults to false. For running the code on real hardware, make sure to flip these launch parameters. Gazebo will not launch when usng real hardware.
 
 Controlling the Drone
 ---------------------
