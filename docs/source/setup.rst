@@ -1,7 +1,14 @@
 Setup Instructions
 ==================
 
-This section provides setup instructions for both simulation and real hardware environments.
+This section provides setup instructions for both simulation and real hardware environments. everything runs on Ubuntu 22.04 using ROS2 Humble.
+
+Prerequisites
+-------------
+
+Install Gazebo Fortress: https://gazebosim.org/docs/fortress/install/
+
+Install ROS2 Humble: https://docs.ros.org/en/humble/Installation.html
 
 Workspace Setup
 ---------------
@@ -51,19 +58,6 @@ Test the installation:
    cd ardupilot/ArduCopter
    sim_vehicle.py -v copter --console --map -w
 
-SITL/MAVProxy
--------------
-
-MAVProxy is a UAV ground control station software package. It should be installed and compiled at this point.
-
-Basic commands in the MAVProxy terminal:
-
-.. code-block:: bash
-
-   mode guided
-   arm throttle
-   takeoff 15
-
 ArduPilot for ROS 2
 -------------------
 
@@ -81,6 +75,8 @@ Import ROS 2 packages:
    rosdep update
    source /opt/ros/humble/setup.bash
    rosdep install --from-paths src --ignore-src -r -y
+
+NOTE: May have to change ardupilot back to Copter-4.5 after vcs import
 
 Micro XRCE DDS Gen Setup
 ------------------------
@@ -140,20 +136,22 @@ Configure environment variables:
    echo 'export IGN_GAZEBO_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:${IGN_GAZEBO_SYSTEM_PLUGIN_PATH}' >> ~/.bashrc
    echo 'export IGN_GAZEBO_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:${IGN_GAZEBO_RESOURCE_PATH}' >> ~/.bashrc
 
-MAVROS Installation (Optional)
+MAVROS Installation
 ------------------------------
 
-If MAVROS is required:
+https://github.com/mavlink/mavros/blob/ros2/mavros/README.md
 
 .. code-block:: bash
 
    sudo apt install ros-humble-mavros
    ros2 run mavros install_geographiclib_datasets.sh
 
+NOTE: May need some permissions to run install_geographiclib_datasets.sh
+
 Workspace Structure
 -------------------
 
-After setup, your workspace should look like:
+After setup, possible workspace should look like:
 
 .. code-block:: text
 
@@ -163,3 +161,13 @@ After setup, your workspace should look like:
    │   ├── ardupilot
    │   ├── micro_ros_agent
    │   └── RSP_drone_project
+
+
+Make sure to use rosdep install all missing packages for the drone_project that you may be missing. Most of the packages are pretty standard. Once everything is done you can run 
+
+.. code-block:: bash
+
+   colcon build
+
+in the drone_workspace to build all of the packages and dont forget to source ROS2 and setup.bash.
+
