@@ -42,13 +42,12 @@ Features:
     ```
 
 - **Flight Control Buttons**
+
   - `Arm`: Arms the drone (calls `/mavros/cmd/arming`)
   - `Disarm`: Disarms the drone
   - `Takeoff 15m`: Runs `ros2 run x4_service_scripts mavros_takeoff`
   - `Land`: Runs `ros2 run x4_service_scripts mavros_landing`
   - `Guided`: Switches mode to GUIDED via `/mavros/set_mode`
   - `Loiter`: Switches mode to LOITER via `/mavros/set_mode`
-
-- **Demo**: Executes a demo flight plan
 
  
